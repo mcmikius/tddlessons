@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FB23A5D3222FB91C0096C5E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23A5D2222FB91C0096C5E0 /* AppDelegate.swift */; };
-		FB23A5D5222FB91C0096C5E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23A5D4222FB91C0096C5E0 /* ViewController.swift */; };
+		FB23A5D5222FB91C0096C5E0 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23A5D4222FB91C0096C5E0 /* TaskListViewController.swift */; };
 		FB23A5D8222FB91C0096C5E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB23A5D6222FB91C0096C5E0 /* Main.storyboard */; };
 		FB23A5DA222FB91C0096C5E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB23A5D9222FB91C0096C5E0 /* Assets.xcassets */; };
 		FB23A5DD222FB91C0096C5E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB23A5DB222FB91C0096C5E0 /* LaunchScreen.storyboard */; };
@@ -20,6 +20,8 @@
 		FB23A60C2230F58E0096C5E0 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23A60B2230F58E0096C5E0 /* LocationTests.swift */; };
 		FB23A60F2230F9330096C5E0 /* TaskManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23A60E2230F9330096C5E0 /* TaskManagerTests.swift */; };
 		FB23A6122230F9C20096C5E0 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23A6112230F9C20096C5E0 /* TaskManager.swift */; };
+		FB23A615223103A00096C5E0 /* TaskListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23A614223103A00096C5E0 /* TaskListViewControllerTests.swift */; };
+		FB23A617223107050096C5E0 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23A616223107050096C5E0 /* DataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +44,7 @@
 /* Begin PBXFileReference section */
 		FB23A5CF222FB91C0096C5E0 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB23A5D2222FB91C0096C5E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB23A5D4222FB91C0096C5E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB23A5D4222FB91C0096C5E0 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		FB23A5D7222FB91C0096C5E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB23A5D9222FB91C0096C5E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB23A5DC222FB91C0096C5E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,8 @@
 		FB23A60B2230F58E0096C5E0 /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
 		FB23A60E2230F9330096C5E0 /* TaskManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerTests.swift; sourceTree = "<group>"; };
 		FB23A6112230F9C20096C5E0 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		FB23A614223103A00096C5E0 /* TaskListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewControllerTests.swift; sourceTree = "<group>"; };
+		FB23A616223107050096C5E0 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 		FB23A5E6222FB91D0096C5E0 /* ToDoAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				FB23A613223103790096C5E0 /* Controller */,
 				FB23A60D2230F90F0096C5E0 /* Manager */,
 				FB23A5E7222FB91D0096C5E0 /* ToDoAppTests.swift */,
 				FB23A5E9222FB91D0096C5E0 /* Info.plist */,
@@ -157,7 +162,8 @@
 		FB23A602222FB9470096C5E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FB23A5D4222FB91C0096C5E0 /* ViewController.swift */,
+				FB23A5D4222FB91C0096C5E0 /* TaskListViewController.swift */,
+				FB23A616223107050096C5E0 /* DataProvider.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,6 +203,14 @@
 				FB23A6112230F9C20096C5E0 /* TaskManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		FB23A613223103790096C5E0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FB23A614223103A00096C5E0 /* TaskListViewControllerTests.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,7 +344,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB23A5D5222FB91C0096C5E0 /* ViewController.swift in Sources */,
+				FB23A617223107050096C5E0 /* DataProvider.swift in Sources */,
+				FB23A5D5222FB91C0096C5E0 /* TaskListViewController.swift in Sources */,
 				FB23A608222FD75C0096C5E0 /* Task.swift in Sources */,
 				FB23A6122230F9C20096C5E0 /* TaskManager.swift in Sources */,
 				FB23A60A222FDACD0096C5E0 /* Location.swift in Sources */,
@@ -345,6 +360,7 @@
 				FB23A605222FD6D00096C5E0 /* TaskTest.swift in Sources */,
 				FB23A60C2230F58E0096C5E0 /* LocationTests.swift in Sources */,
 				FB23A60F2230F9330096C5E0 /* TaskManagerTests.swift in Sources */,
+				FB23A615223103A00096C5E0 /* TaskListViewControllerTests.swift in Sources */,
 				FB23A5E8222FB91D0096C5E0 /* ToDoAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
