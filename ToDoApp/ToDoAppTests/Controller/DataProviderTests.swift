@@ -117,6 +117,24 @@ class DataProviderTests: XCTestCase {
         let buttonTitle = tableView.delegate?.tableView?(tableView, titleForDeleteConfirmationButtonForRowAt: IndexPath(row: 0, section: 1))
         XCTAssertEqual(buttonTitle, "Undone")
     }
+    
+    func testCheckingTaskChecksInTaskManager() {
+        let task = Task(title: "Foo")
+        sut.taskManager?.add(task: task)
+        tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertEqual(sut.taskManager?.tasksCount, 0)
+        XCTAssertEqual(sut.taskManager?.doneTasksCount, 1)
+    }
+    
+    func testUncheckingTaskUnckecksInTaskManager() {
+        let task = Task(title: "Foo")
+        sut.taskManager?.add(task: task)
+        sut.taskManager?.checkTask(at: 0)
+        tableView.reloadData()
+        tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 1))
+        XCTAssertEqual(sut.taskManager?.tasksCount, 1)
+        XCTAssertEqual(sut.taskManager?.doneTasksCount, 0)
+    }
 }
 
 extension DataProviderTests {
