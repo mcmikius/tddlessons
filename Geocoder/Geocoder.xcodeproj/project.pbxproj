@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB9505982237C8F900DB4928 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9505972237C8F900DB4928 /* AppDelegate.swift */; };
+		FB95059A2237C8F900DB4928 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9505992237C8F900DB4928 /* ViewController.swift */; };
+		FB95059D2237C8F900DB4928 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB95059B2237C8F900DB4928 /* Main.storyboard */; };
+		FB9505A02237C8F900DB4928 /* Geocoder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB95059E2237C8F900DB4928 /* Geocoder.xcdatamodeld */; };
+		FB9505A22237C8FB00DB4928 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB9505A12237C8FB00DB4928 /* Assets.xcassets */; };
+		FB9505A52237C8FB00DB4928 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9505A32237C8FB00DB4928 /* LaunchScreen.storyboard */; };
+		FB9505B02237C8FB00DB4928 /* GeocoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9505AF2237C8FB00DB4928 /* GeocoderTests.swift */; };
+		FB9505BB2237C8FB00DB4928 /* GeocoderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9505BA2237C8FB00DB4928 /* GeocoderUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB9505AC2237C8FB00DB4928 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB95058C2237C8F900DB4928 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB9505932237C8F900DB4928;
+			remoteInfo = Geocoder;
+		};
+		FB9505B72237C8FB00DB4928 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB95058C2237C8F900DB4928 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB9505932237C8F900DB4928;
+			remoteInfo = Geocoder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FB9505942237C8F900DB4928 /* Geocoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geocoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB9505972237C8F900DB4928 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB9505992237C8F900DB4928 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB95059C2237C8F900DB4928 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB95059F2237C8F900DB4928 /* Geocoder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Geocoder.xcdatamodel; sourceTree = "<group>"; };
+		FB9505A12237C8FB00DB4928 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB9505A42237C8FB00DB4928 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB9505A62237C8FB00DB4928 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB9505AB2237C8FB00DB4928 /* GeocoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeocoderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB9505AF2237C8FB00DB4928 /* GeocoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocoderTests.swift; sourceTree = "<group>"; };
+		FB9505B12237C8FB00DB4928 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB9505B62237C8FB00DB4928 /* GeocoderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeocoderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB9505BA2237C8FB00DB4928 /* GeocoderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocoderUITests.swift; sourceTree = "<group>"; };
+		FB9505BC2237C8FB00DB4928 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB9505912237C8F900DB4928 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9505A82237C8FB00DB4928 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9505B32237C8FB00DB4928 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB95058B2237C8F900DB4928 = {
+			isa = PBXGroup;
+			children = (
+				FB9505962237C8F900DB4928 /* Geocoder */,
+				FB9505AE2237C8FB00DB4928 /* GeocoderTests */,
+				FB9505B92237C8FB00DB4928 /* GeocoderUITests */,
+				FB9505952237C8F900DB4928 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB9505952237C8F900DB4928 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB9505942237C8F900DB4928 /* Geocoder.app */,
+				FB9505AB2237C8FB00DB4928 /* GeocoderTests.xctest */,
+				FB9505B62237C8FB00DB4928 /* GeocoderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB9505962237C8F900DB4928 /* Geocoder */ = {
+			isa = PBXGroup;
+			children = (
+				FB9505972237C8F900DB4928 /* AppDelegate.swift */,
+				FB9505992237C8F900DB4928 /* ViewController.swift */,
+				FB95059B2237C8F900DB4928 /* Main.storyboard */,
+				FB9505A12237C8FB00DB4928 /* Assets.xcassets */,
+				FB9505A32237C8FB00DB4928 /* LaunchScreen.storyboard */,
+				FB9505A62237C8FB00DB4928 /* Info.plist */,
+				FB95059E2237C8F900DB4928 /* Geocoder.xcdatamodeld */,
+			);
+			path = Geocoder;
+			sourceTree = "<group>";
+		};
+		FB9505AE2237C8FB00DB4928 /* GeocoderTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB9505AF2237C8FB00DB4928 /* GeocoderTests.swift */,
+				FB9505B12237C8FB00DB4928 /* Info.plist */,
+			);
+			path = GeocoderTests;
+			sourceTree = "<group>";
+		};
+		FB9505B92237C8FB00DB4928 /* GeocoderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FB9505BA2237C8FB00DB4928 /* GeocoderUITests.swift */,
+				FB9505BC2237C8FB00DB4928 /* Info.plist */,
+			);
+			path = GeocoderUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB9505932237C8F900DB4928 /* Geocoder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB9505BF2237C8FB00DB4928 /* Build configuration list for PBXNativeTarget "Geocoder" */;
+			buildPhases = (
+				FB9505902237C8F900DB4928 /* Sources */,
+				FB9505912237C8F900DB4928 /* Frameworks */,
+				FB9505922237C8F900DB4928 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Geocoder;
+			productName = Geocoder;
+			productReference = FB9505942237C8F900DB4928 /* Geocoder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB9505AA2237C8FB00DB4928 /* GeocoderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB9505C22237C8FB00DB4928 /* Build configuration list for PBXNativeTarget "GeocoderTests" */;
+			buildPhases = (
+				FB9505A72237C8FB00DB4928 /* Sources */,
+				FB9505A82237C8FB00DB4928 /* Frameworks */,
+				FB9505A92237C8FB00DB4928 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB9505AD2237C8FB00DB4928 /* PBXTargetDependency */,
+			);
+			name = GeocoderTests;
+			productName = GeocoderTests;
+			productReference = FB9505AB2237C8FB00DB4928 /* GeocoderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FB9505B52237C8FB00DB4928 /* GeocoderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB9505C52237C8FB00DB4928 /* Build configuration list for PBXNativeTarget "GeocoderUITests" */;
+			buildPhases = (
+				FB9505B22237C8FB00DB4928 /* Sources */,
+				FB9505B32237C8FB00DB4928 /* Frameworks */,
+				FB9505B42237C8FB00DB4928 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB9505B82237C8FB00DB4928 /* PBXTargetDependency */,
+			);
+			name = GeocoderUITests;
+			productName = GeocoderUITests;
+			productReference = FB9505B62237C8FB00DB4928 /* GeocoderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB95058C2237C8F900DB4928 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Michail Bondarenko";
+				TargetAttributes = {
+					FB9505932237C8F900DB4928 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					FB9505AA2237C8FB00DB4928 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = FB9505932237C8F900DB4928;
+					};
+					FB9505B52237C8FB00DB4928 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = FB9505932237C8F900DB4928;
+					};
+				};
+			};
+			buildConfigurationList = FB95058F2237C8F900DB4928 /* Build configuration list for PBXProject "Geocoder" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB95058B2237C8F900DB4928;
+			productRefGroup = FB9505952237C8F900DB4928 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB9505932237C8F900DB4928 /* Geocoder */,
+				FB9505AA2237C8FB00DB4928 /* GeocoderTests */,
+				FB9505B52237C8FB00DB4928 /* GeocoderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB9505922237C8F900DB4928 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9505A52237C8FB00DB4928 /* LaunchScreen.storyboard in Resources */,
+				FB9505A22237C8FB00DB4928 /* Assets.xcassets in Resources */,
+				FB95059D2237C8F900DB4928 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9505A92237C8FB00DB4928 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9505B42237C8FB00DB4928 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB9505902237C8F900DB4928 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB95059A2237C8F900DB4928 /* ViewController.swift in Sources */,
+				FB9505A02237C8F900DB4928 /* Geocoder.xcdatamodeld in Sources */,
+				FB9505982237C8F900DB4928 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9505A72237C8FB00DB4928 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9505B02237C8FB00DB4928 /* GeocoderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB9505B22237C8FB00DB4928 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9505BB2237C8FB00DB4928 /* GeocoderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB9505AD2237C8FB00DB4928 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB9505932237C8F900DB4928 /* Geocoder */;
+			targetProxy = FB9505AC2237C8FB00DB4928 /* PBXContainerItemProxy */;
+		};
+		FB9505B82237C8FB00DB4928 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB9505932237C8F900DB4928 /* Geocoder */;
+			targetProxy = FB9505B72237C8FB00DB4928 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB95059B2237C8F900DB4928 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB95059C2237C8F900DB4928 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB9505A32237C8FB00DB4928 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB9505A42237C8FB00DB4928 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB9505BD2237C8FB00DB4928 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FB9505BE2237C8FB00DB4928 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB9505C02237C8FB00DB4928 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GYWWW55376;
+				INFOPLIST_FILE = Geocoder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcmikius.Geocoder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB9505C12237C8FB00DB4928 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GYWWW55376;
+				INFOPLIST_FILE = Geocoder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcmikius.Geocoder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FB9505C32237C8FB00DB4928 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GYWWW55376;
+				INFOPLIST_FILE = GeocoderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcmikius.GeocoderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Geocoder.app/Geocoder";
+			};
+			name = Debug;
+		};
+		FB9505C42237C8FB00DB4928 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GYWWW55376;
+				INFOPLIST_FILE = GeocoderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcmikius.GeocoderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Geocoder.app/Geocoder";
+			};
+			name = Release;
+		};
+		FB9505C62237C8FB00DB4928 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GYWWW55376;
+				INFOPLIST_FILE = GeocoderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcmikius.GeocoderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Geocoder;
+			};
+			name = Debug;
+		};
+		FB9505C72237C8FB00DB4928 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GYWWW55376;
+				INFOPLIST_FILE = GeocoderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcmikius.GeocoderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Geocoder;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB95058F2237C8F900DB4928 /* Build configuration list for PBXProject "Geocoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB9505BD2237C8FB00DB4928 /* Debug */,
+				FB9505BE2237C8FB00DB4928 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB9505BF2237C8FB00DB4928 /* Build configuration list for PBXNativeTarget "Geocoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB9505C02237C8FB00DB4928 /* Debug */,
+				FB9505C12237C8FB00DB4928 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB9505C22237C8FB00DB4928 /* Build configuration list for PBXNativeTarget "GeocoderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB9505C32237C8FB00DB4928 /* Debug */,
+				FB9505C42237C8FB00DB4928 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB9505C52237C8FB00DB4928 /* Build configuration list for PBXNativeTarget "GeocoderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB9505C62237C8FB00DB4928 /* Debug */,
+				FB9505C72237C8FB00DB4928 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FB95059E2237C8F900DB4928 /* Geocoder.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FB95059F2237C8F900DB4928 /* Geocoder.xcdatamodel */,
+			);
+			currentVersion = FB95059F2237C8F900DB4928 /* Geocoder.xcdatamodel */;
+			path = Geocoder.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FB95058C2237C8F900DB4928 /* Project object */;
+}
