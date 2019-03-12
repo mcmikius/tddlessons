@@ -7,12 +7,17 @@
 //
 
 import XCTest
+import CoreLocation
 @testable import ToDoApp
 
 class DetailViewControllerTests: XCTestCase {
+    
+    var sut: DetailViewController!
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        sut = storyboard.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as? DetailViewController
+        sut.loadViewIfNeeded()
     }
 
     override func tearDown() {
@@ -20,8 +25,64 @@ class DetailViewControllerTests: XCTestCase {
     }
 
     func testHasTitleLabel() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as! DetailViewController
+        
+        
+        XCTAssertNotNil(sut.titleLabel)
+        XCTAssertNotNil(sut.titleLabel.isDescendant(of: sut.view))
+    }
+    
+    func testHasDescriptionLabel() {
+        
+        XCTAssertNotNil(sut.descriptionLabel)
+        XCTAssertNotNil(sut.descriptionLabel.isDescendant(of: sut.view))
+    }
+    
+    func testHasDateLabel() {
+        
+        XCTAssertNotNil(sut.dateLabel)
+        XCTAssertNotNil(sut.dateLabel.isDescendant(of: sut.view))
+    }
+    
+    func testHasMapView() {
+        
+        XCTAssertNotNil(sut.mapView)
+        XCTAssertNotNil(sut.mapView.isDescendant(of: sut.view))
+    }
+    
+    func testHasLocationLabel() {
+        
+        XCTAssertNotNil(sut.locationLabel)
+        XCTAssertNotNil(sut.locationLabel.isDescendant(of: sut.view))
+    }
+    
+    func setupTaskAndAppearanceTransition() {
+        let ccordinate = CLLocationCoordinate2D(latitude: 50.4020865, longitude: 30.61468031)
+        let location = Location(name: "Baz", coordinate: ccordinate)
+        let date = Date(timeIntervalSince1970: 1552392000)
+        let task = Task(title: "Foo", description: "Bar", date: date, location: location)
+        sut.task = task
+        
+        sut.beginAppearanceTransition(true, animated: true)
+        sut.endAppearanceTransition()
+    }
+    
+    
+    func testSettingTaskSetsTitleLabel() {
+        setupTaskAndAppearanceTransition()
+        
+        XCTAssertEqual(sut.titleLabel.text, "Foo")
+    }
+    
+    func testSettingTaskSetsDescriptionLabel() {
+        setupTaskAndAppearanceTransition()
+        
+        XCTAssertEqual(sut.descriptionLabel.text, "Bar")
+    }
+    
+    func testSettingTaskSetsLocationLabel() {
+        setupTaskAndAppearanceTransition()
+        
+        XCTAssertEqual(sut.locationLabel.text, "Baz")
     }
 
 }
