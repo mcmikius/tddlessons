@@ -28,26 +28,24 @@ class TaskCell: UITableViewCell {
             locationLabel = nil
         } else {
             
+            let dateString = dateFormatter.string(from: task.date)
+            dateLabel.text = dateString
             
-            if let date = task.date {
-                let dateString = dateFormatter.string(from: date)
-                dateLabel.text = dateString
-            }
             self.titleLabel.text = task.title
             self.locationLabel.text = task.location?.name
         }
         
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }
