@@ -154,10 +154,10 @@
 		FB23A5E6222FB91D0096C5E0 /* ToDoAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				FB92C7D6223A48190055B6B8 /* Supporting files */,
 				FB12F13322367DE20018B475 /* View */,
 				FB23A613223103790096C5E0 /* Controller */,
 				FB23A60D2230F90F0096C5E0 /* Manager */,
-				FB23A5E7222FB91D0096C5E0 /* ToDoAppTests.swift */,
 				FB23A5E9222FB91D0096C5E0 /* Info.plist */,
 				FB23A606222FD6E40096C5E0 /* Model */,
 			);
@@ -249,6 +249,14 @@
 				FB9505872237ACAC00DB4928 /* NewTaskViewControllerTests.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		FB92C7D6223A48190055B6B8 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				FB23A5E7222FB91D0096C5E0 /* ToDoAppTests.swift */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 		FBBABD3B2238ED89003CE4FF /* Extensions */ = {
