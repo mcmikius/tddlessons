@@ -23,6 +23,21 @@ struct Task {
     }
 }
 
+extension Task {
+    typealias PlistDictionary = [String : Any]
+    init?(dictionary: PlistDictionary) {
+        self.title = dictionary["title"] as! String
+        self.description = dictionary["description"] as? String
+        self.date = dictionary["date"] as? Date ?? Date()
+//        self.location = dictionary["location"] as? Location
+        if let locationDictionary = dictionary["location"] as? [String : Any] {
+            self.location = Location(dictionary: locationDictionary)
+        } else {
+            self.location = nil
+        }
+    }
+}
+
 extension Task: Equatable {
     static func == (lhs: Task, rhs: Task) -> Bool {
         if lhs.title == rhs.title, lhs.description == rhs.description, lhs.location == rhs.location {

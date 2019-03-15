@@ -45,5 +45,15 @@ class TaskTest: XCTestCase {
         let task = Task(title: "Bar", description: "Baz", location: location)
         XCTAssertEqual(location, task.location)
     }
+    
+    func testCanBeCreatedFromPlistDictionary() {
+        let location = Location(name: "Baz")
+        let date = Date(timeIntervalSince1970: 10)
+        let task = Task(title: "Foo", description: "Bar", date: date, location: location)
+        let locationDictionary: [String : Any] = ["name" : "Baz"]
+        let dictionary: [String : Any] = ["title": "Foo", "description" : "Bar", "date" : date, "location" : locationDictionary]
+        let createdTask = Task(dictionary: dictionary)
+        XCTAssertEqual(task, createdTask)
+    }
 
 }
