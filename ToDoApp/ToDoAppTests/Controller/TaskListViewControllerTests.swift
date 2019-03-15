@@ -12,16 +12,17 @@ import XCTest
 class TaskListViewControllerTests: XCTestCase {
     
     var sut: TaskListViewController!
-
+    
     override func setUp() {
+        super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: TaskListViewController.self))
         sut = viewController as? TaskListViewController
         sut.loadViewIfNeeded()
     }
-
+    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
     
     func testWhenViewIsLoadedTableViewNotNil() {
@@ -50,21 +51,47 @@ class TaskListViewControllerTests: XCTestCase {
         let target = sut.navigationItem.rightBarButtonItem?.target
         XCTAssertEqual(target as? TaskListViewController, sut)
     }
-
-    func testAddNewTaskPresentsNewTaskViewController() {
-        XCTAssertNil(sut.presentedViewController)
+    
+    func presentingNewTaskViewController() -> NewTaskViewController {
         guard let newTaskButton = sut.navigationItem.rightBarButtonItem, let action = newTaskButton.action else {
-            XCTFail()
-            return
+            return NewTaskViewController()
         }
         UIApplication.shared.keyWindow?.rootViewController = sut
         sut.performSelector(onMainThread: action, with: newTaskButton, waitUntilDone: true)
-        XCTAssertNotNil(sut.presentedViewController)
-        XCTAssertTrue(sut.presentedViewController is NewTaskViewController)
         
         let newTaskViewController = sut.presentedViewController as! NewTaskViewController
+        return newTaskViewController
+    }
+    
+    func testAddNewTaskPresentsNewTaskViewController() {
+        let newTaskViewController = presentingNewTaskViewController()
         XCTAssertNotNil(newTaskViewController.titleTextField)
         
     }
+    
+    func testSharesSameTaskManagerWithNewTaskViewController() {
+        let newTaskViewController = presentingNewTaskViewController()
+        XCTAssertNotNil(sut.dataProvider.taskManager)
+        XCTAssertTrue(newTaskViewController.taskManager === sut.dataProvider.taskManager)
+        
+    }
+    
+    func testWhenViewApperedTableViewRealoaded() {
+        let mockTableView = MockTableView()
+        sut.tableView = mockTableView
+        sut.beginAppearanceTransition(true, animated: true)
+        sut.endAppearanceTransition()
+        
+        XCTAssertTrue((sut.tableView as! MockTableView).isReloaded)
+    }
+    
+}
 
+extension TaskListViewControllerTests {
+    class MockTableView: UITableView {
+        var isReloaded = false
+        override func reloadData() {
+            isReloaded = true
+        }
+    }
 }
