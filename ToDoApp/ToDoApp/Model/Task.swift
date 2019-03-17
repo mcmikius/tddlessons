@@ -51,7 +51,7 @@ extension Task {
 
 extension Task: Equatable {
     static func == (lhs: Task, rhs: Task) -> Bool {
-        if lhs.title == rhs.title, lhs.description == rhs.description, lhs.date == rhs.date, lhs.location == rhs.location {
+        if lhs.title == rhs.title, lhs.description == rhs.description, /*lhs.date == rhs.date,*/ lhs.location == rhs.location {
             return true
         }
         return false
