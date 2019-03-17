@@ -12,6 +12,15 @@ import CoreLocation
 struct Location {
     let name: String
     let coordinate: CLLocationCoordinate2D?
+    var dictionary: [String : Any] {
+        var dictionary: [String : Any] = [:]
+        dictionary["name"] = name
+        if let coordinate = coordinate {
+            dictionary["latitude"] = coordinate.latitude
+            dictionary["longitude"] = coordinate.longitude
+        }
+        return dictionary
+    }
     
     init(name: String, coordinate: CLLocationCoordinate2D? = nil) {
         self.name = name

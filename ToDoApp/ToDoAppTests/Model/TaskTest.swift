@@ -55,5 +55,13 @@ class TaskTest: XCTestCase {
         let createdTask = Task(dictionary: dictionary)
         XCTAssertEqual(task, createdTask)
     }
+    func testCanBeSerializedIntoDictionary() {
+        let location = Location(name: "Baz")
+        let date = Date(timeIntervalSince1970: 10)
+        let task = Task(title: "Foo", description: "Bar", date: date, location: location)
+        let generatedTask = Task(dictionary: task.dictionary)
+        
+        XCTAssertEqual(task, generatedTask)
+    }
 
 }
