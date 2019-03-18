@@ -39,21 +39,21 @@ class ToDoAppUITests: XCTestCase {
         app.textFields["Location"].tap()
         app.textFields["Location"].typeText("Bar")
         
+        app.textFields["Address"].tap()
+        app.textFields["Address"].typeText("Ufa")
+        
         app.textFields["Description"].tap()
         app.textFields["Description"].typeText("Baz")
         
         app.textFields["Date"].tap()
         app.textFields["Date"].typeText("01.01.19")
         
-        app.textFields["Address"].tap()
-        app.textFields["Address"].typeText("Ufa")
-        
         XCTAssertFalse(app.isOnMainView)
-        app.buttons["save"].tap()
+        app.buttons["Save"].tap()
         
         XCTAssertTrue(app.tables.staticTexts["Foo"].exists)
         XCTAssertTrue(app.tables.staticTexts["Bar"].exists)
-        XCTAssertTrue(app.tables.staticTexts["01.01.19"].exists)
+        XCTAssertTrue(app.tables.staticTexts["01.04.19"].exists)
     }
     
     func testWhenCellIsSwipedLeftDoneButtonAppeared() {
@@ -66,17 +66,17 @@ class ToDoAppUITests: XCTestCase {
         app.textFields["Location"].tap()
         app.textFields["Location"].typeText("Bar")
         
+        app.textFields["Address"].tap()
+        app.textFields["Address"].typeText("Ufa")
+        
         app.textFields["Description"].tap()
         app.textFields["Description"].typeText("Baz")
         
         app.textFields["Date"].tap()
-        app.textFields["Date"].typeText("01.01.19")
-        
-        app.textFields["Address"].tap()
-        app.textFields["Address"].typeText("Ufa")
+        app.textFields["Date"].typeText("01.04.19")
         
         XCTAssertFalse(app.isOnMainView)
-        app.buttons["save"].tap()
+        app.buttons["Save"].tap()
         
         XCTAssertTrue(app.isOnMainView)
         

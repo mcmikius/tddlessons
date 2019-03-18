@@ -21,7 +21,7 @@ class TaskManager {
     }
     
     var tasksURL: URL {
-        let fileURLs = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask)
+        let fileURLs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         guard let documentURL = fileURLs.first else {
             fatalError()
         }
@@ -31,8 +31,11 @@ class TaskManager {
     
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.willResignActiveNotification, object: nil)
+        
         if let data = try? Data(contentsOf: tasksURL) {
-            let dictionaries = try! PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [[String : Any]]
+            let dictionaries = try! PropertyListSerialization.propertyList(from: data,
+                                                                           options: [],
+                                                                           format: nil) as! [[String : Any]]
             for dictionary in dictionaries {
                 if let task = Task(dictionary: dictionary) {
                     tasks.append(task)
@@ -45,13 +48,17 @@ class TaskManager {
         save()
     }
     
-    @objc func save() {
+    @objc
+    func save() {
         let taskDictionaries = self.tasks.map { $0.dictionary }
         guard taskDictionaries.count > 0 else {
             try? FileManager.default.removeItem(at: tasksURL)
             return
         }
-        let plistData = try! PropertyListSerialization.data(fromPropertyList: taskDictionaries, format: .xml, options: PropertyListSerialization.WriteOptions(0))
+        
+        let plistData = try! PropertyListSerialization.data(fromPropertyList: taskDictionaries,
+                                                            format: .xml,
+                                                            options: PropertyListSerialization.WriteOptions(0))
         try! plistData.write(to: tasksURL, options: .atomic)
     }
     func add(task: Task) {

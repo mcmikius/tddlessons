@@ -11,6 +11,16 @@ import XCTest
 
 
 class TaskTest: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
 
     func testInitTaskWithTitle() {
         let task = Task(title: "Foo")
@@ -61,7 +71,7 @@ class TaskTest: XCTestCase {
                                           "description" : "Bar",
                                           "date" : date,
                                           "location" : locationDictionary]
-        let createdTask = Task(dict: dictionary)
+        let createdTask = Task(dictionary: dictionary)
         
         XCTAssertEqual(task, createdTask)
     }
@@ -71,7 +81,7 @@ class TaskTest: XCTestCase {
         let date = Date(timeIntervalSince1970: 10)
         let task = Task(title: "Foo", description: "Bar", date: date, location: location)
         
-        let generatedTask = Task(dict: task.dict)
+        let generatedTask = Task(dictionary: task.dictionary)
         
         XCTAssertEqual(task, generatedTask)
     }

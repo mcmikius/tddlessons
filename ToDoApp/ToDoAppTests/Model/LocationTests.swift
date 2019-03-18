@@ -20,6 +20,7 @@ class LocationTests: XCTestCase {
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
     
     func testInitSetsName() {
@@ -41,11 +42,11 @@ class LocationTests: XCTestCase {
     func testCanBeCreatedFromPlistDictionary() {
         let location = Location(name: "Foo", coordinate: CLLocationCoordinate2D(latitude: 10.0,
                                                                                 longitude: 10.0))
-        let dict: [String : Any] = ["name" : "Foo",
+        let dictionary: [String : Any] = ["name" : "Foo",
                                     "latitude" : 10.0,
                                     "longitude" : 10.0]
         
-        let createdLocation = Location(dict: dict)
+        let createdLocation = Location(dictionary: dictionary)
         
         XCTAssertEqual(location, createdLocation)
     }
@@ -53,7 +54,7 @@ class LocationTests: XCTestCase {
     func testCanBeSerializedIntoDictionary() {
         let location = Location(name: "Foo", coordinate: CLLocationCoordinate2D(latitude: 10.0,
                                                                                 longitude: 10.0))
-        let generatedLocation = Location(dict: location.dict)
+        let generatedLocation = Location(dictionary: location.dictionary)
         
         XCTAssertEqual(location, generatedLocation)
     }
