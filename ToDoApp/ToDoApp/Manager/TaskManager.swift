@@ -32,8 +32,8 @@ class TaskManager {
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.willResignActiveNotification, object: nil)
         if let data = try? Data(contentsOf: tasksURL) {
-            let dictionaries = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [[String : Any]]
-            for dictionary in dictionaries! {
+            let dictionaries = try! PropertyListSerialization.propertyList(from: data, options: [], format: nil) as! [[String : Any]]
+            for dictionary in dictionaries {
                 if let task = Task(dictionary: dictionary) {
                     tasks.append(task)
                 }
@@ -51,8 +51,8 @@ class TaskManager {
             try? FileManager.default.removeItem(at: tasksURL)
             return
         }
-        let plistData = try? PropertyListSerialization.data(fromPropertyList: taskDictionaries, format: .xml, options: PropertyListSerialization.WriteOptions(0))
-        try? plistData?.write(to: tasksURL, options: .atomic)
+        let plistData = try! PropertyListSerialization.data(fromPropertyList: taskDictionaries, format: .xml, options: PropertyListSerialization.WriteOptions(0))
+        try! plistData.write(to: tasksURL, options: .atomic)
     }
     func add(task: Task) {
         if !tasks.contains(task) {
@@ -65,12 +65,14 @@ class TaskManager {
     }
     
     func checkTask(at index: Int) {
-        let task = tasks.remove(at: index)
+        var task = tasks.remove(at: index)
+        task.isDone.toggle()
         doneTasks.append(task)
     }
     
     func uncheckTask(at index: Int) {
-        let task = doneTasks.remove(at: index)
+        var task = doneTasks.remove(at: index)
+        task.isDone.toggle()
         tasks.append(task)
     }
     

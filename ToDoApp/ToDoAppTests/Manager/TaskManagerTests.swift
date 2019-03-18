@@ -12,18 +12,18 @@ import XCTest
 class TaskManagerTests: XCTestCase {
     
     var sut: TaskManager!
-
+    
     override func setUp() {
         super.setUp()
         sut = TaskManager()
     }
-
+    
     override func tearDown() {
         sut.removeAll()
         sut = nil
         super.tearDown()
     }
-
+    
     func testInitTaskManagerWithZeroTasks() {
         XCTAssertEqual(sut.tasksCount, 0)
     }
@@ -35,20 +35,25 @@ class TaskManagerTests: XCTestCase {
     func testAddTaskIncrementTasksCount() {
         let task = Task(title: "Foo")
         sut.add(task: task)
+        
         XCTAssertEqual(sut.tasksCount, 1)
     }
     
     func testTaskAtIndexIsAddedTask() {
         let task = Task(title: "Foo")
         sut.add(task: task)
+        
         let returnedTask = sut.task(at: 0)
+        
         XCTAssertEqual(task.title, returnedTask.title)
     }
     
     func testCheckTaskAtIndexChangesCounts() {
         let task = Task(title: "Foo")
         sut.add(task: task)
+        
         sut.checkTask(at: 0)
+        
         XCTAssertEqual(sut.tasksCount, 0)
         XCTAssertEqual(sut.doneTasksCount, 1)
     }
@@ -67,13 +72,14 @@ class TaskManagerTests: XCTestCase {
     func testDoneTaskAtReturnsCheckedTask() {
         let task = Task(title: "Foo")
         sut.add(task: task)
+        
         sut.checkTask(at: 0)
         let returnedTask = sut.doneTask(at: 0)
-        XCTAssertEqual(returnedTask, task)
         
+        XCTAssertEqual(returnedTask, task)
     }
     
-    func testRemoveAllResultsCountBeZero() {
+    func testRemoveAllResultsCountsBeZero() {
         sut.add(task: Task(title: "Foo"))
         sut.add(task: Task(title: "Bar"))
         sut.checkTask(at: 0)
@@ -98,6 +104,7 @@ class TaskManagerTests: XCTestCase {
         
         taskManager.add(task: task)
         taskManager.add(task: task1)
+        
         NotificationCenter.default.post(name: UIApplication.willResignActiveNotification, object: nil)
         
         taskManager = nil
@@ -108,5 +115,4 @@ class TaskManagerTests: XCTestCase {
         XCTAssertEqual(taskManager.task(at: 0), task)
         XCTAssertEqual(taskManager.task(at: 1), task1)
     }
-
 }
