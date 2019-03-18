@@ -41,7 +41,6 @@ extension Task {
         self.title = dictionary["title"] as! String
         self.description = dictionary["description"] as? String
         self.date = dictionary["date"] as? Date ?? Date()
-//        self.location = dictionary["location"] as? Location
         if let locationDictionary = dictionary["location"] as? [String : Any] {
             self.location = Location(dictionary: locationDictionary)
         } else {
@@ -52,7 +51,7 @@ extension Task {
 
 extension Task: Equatable {
     static func == (lhs: Task, rhs: Task) -> Bool {
-        if lhs.title == rhs.title, lhs.description == rhs.description, /*lhs.date == rhs.date,*/ lhs.location == rhs.location {
+        if lhs.title == rhs.title, lhs.description == rhs.description, lhs.location == rhs.location {
             return true
         }
         return false

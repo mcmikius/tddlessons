@@ -16,22 +16,21 @@ class TaskListViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: TaskListViewController.self))
-        sut = viewController as? TaskListViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TaskListViewController.self))
+        sut = vc as? TaskListViewController
+        
         sut.loadViewIfNeeded()
     }
     
     override func tearDown() {
-        super.tearDown()
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
     func testWhenViewIsLoadedTableViewNotNil() {
-        
         XCTAssertNotNil(sut.tableView)
     }
     
     func testWhenViewIsLoadedDataProviderIsNotNil() {
-        
         XCTAssertNotNil(sut.dataProvider)
     }
     
@@ -44,18 +43,25 @@ class TaskListViewControllerTests: XCTestCase {
     }
     
     func testWhenViewIsLoadedTableViewDelegateEqualsTableViewDataSource() {
-        XCTAssertEqual(sut.tableView.delegate as? DataProvider, sut.tableView.dataSource as? DataProvider)
+        XCTAssertEqual(
+            sut.tableView.delegate as? DataProvider,
+            sut.tableView.dataSource as? DataProvider
+        )
     }
     
-    func testTaskListViewControllerHasAddBarButtonWithSelfAsTarget() {
+    func testTaskListVCHasAddBarButtonWithSelfAsTarget() {
         let target = sut.navigationItem.rightBarButtonItem?.target
         XCTAssertEqual(target as? TaskListViewController, sut)
     }
     
     func presentingNewTaskViewController() -> NewTaskViewController {
-        guard let newTaskButton = sut.navigationItem.rightBarButtonItem, let action = newTaskButton.action else {
-            return NewTaskViewController()
+        
+        guard
+            let newTaskButton = sut.navigationItem.rightBarButtonItem,
+            let action = newTaskButton.action else {
+                return NewTaskViewController()
         }
+        
         UIApplication.shared.keyWindow?.rootViewController = sut
         sut.performSelector(onMainThread: action, with: newTaskButton, waitUntilDone: true)
         
@@ -66,19 +72,17 @@ class TaskListViewControllerTests: XCTestCase {
     func testAddNewTaskPresentsNewTaskViewController() {
         let newTaskViewController = presentingNewTaskViewController()
         XCTAssertNotNil(newTaskViewController.titleTextField)
-        
     }
     
-    func testSharesSameTaskManagerWithNewTaskViewController() {
+    func testSharesSameTaskManagerWithNewTaskVC() {
         let newTaskViewController = presentingNewTaskViewController()
-        XCTAssertNotNil(sut.dataProvider.taskManager)
         XCTAssertTrue(newTaskViewController.taskManager === sut.dataProvider.taskManager)
-        
     }
     
-    func testWhenViewApperedTableViewRealoaded() {
+    func testWhenViewAppearedTableViewRealoded() {
         let mockTableView = MockTableView()
         sut.tableView = mockTableView
+        
         sut.beginAppearanceTransition(true, animated: true)
         sut.endAppearanceTransition()
         
@@ -89,33 +93,40 @@ class TaskListViewControllerTests: XCTestCase {
         let task = Task(title: "Foo")
         sut.dataProvider.taskManager!.add(task: task)
         
-        expectation(forNotification: NSNotification.Name(rawValue: "DidSelectRowNotification"), object: nil) { (notification) -> Bool in
-            guard let taskFromNotification = notification.userInfo?["task"] as? Task else { return false }
+        expectation(forNotification: NSNotification.Name(rawValue: "DidSelectRow notification"), object: nil) { notification -> Bool in
+            
+            guard let taskFromNotification = notification.userInfo?["task"] as? Task else {
+                return false
+            }
+            
             return task == taskFromNotification
         }
+        
         let tableView = sut.tableView
         tableView?.delegate?.tableView!(tableView!, didSelectRowAt: IndexPath(row: 0, section: 0))
         waitForExpectations(timeout: 1, handler: nil)
     }
     
-    func testSelectedCellNotificationPushesDetailViewController() {
-        let mockNavigationController = MockNavigationController(rootViewController: sut)
-        UIApplication.shared.keyWindow?.rootViewController = mockNavigationController
+    func testSelectedCellNotificationPushesDetailVC() {
+        let mockNavigatonController = MockNavigationController(rootViewController: sut)
+        UIApplication.shared.keyWindow?.rootViewController = mockNavigatonController
+        
         sut.loadViewIfNeeded()
+        
         let task = Task(title: "Foo")
         let task1 = Task(title: "Bar")
         sut.dataProvider.taskManager?.add(task: task)
         sut.dataProvider.taskManager?.add(task: task1)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DidSelectRowNotification"), object: self, userInfo: ["task" : task1])
-        guard let detailViewController = mockNavigationController.pushedViewController as? DetailViewController else {
-            XCTFail()
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DidSelectRow notification"), object: self, userInfo: ["task" : task1])
+        
+        guard let detailViewController = mockNavigatonController.pushedViewController as? DetailViewController else {
+            
             return
         }
+        
         detailViewController.loadViewIfNeeded()
-        XCTAssertNotNil(detailViewController.titleLabel)
-        XCTAssertTrue(detailViewController.task == task1)
     }
-    
 }
 
 extension TaskListViewControllerTests {

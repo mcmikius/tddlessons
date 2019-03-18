@@ -17,6 +17,7 @@ class TaskTest: XCTestCase {
         
         XCTAssertNotNil(task)
     }
+    
     func testInitTaskWithTitleAndDescription() {
         let task = Task(title: "Foo", description: "Bar")
         
@@ -31,6 +32,7 @@ class TaskTest: XCTestCase {
     
     func testWhenGivenDescriptionSetsDescription() {
         let task = Task(title: "Foo", description: "Bar")
+        
         XCTAssertTrue(task.description == "Bar")
     }
     
@@ -42,7 +44,10 @@ class TaskTest: XCTestCase {
     func testWhenGivenLocationSetsLocation() {
         let location = Location(name: "Foo")
         
-        let task = Task(title: "Bar", description: "Baz", location: location)
+        let task = Task(title: "Bar",
+                        description: "Baz",
+                        location: location)
+        
         XCTAssertEqual(location, task.location)
     }
     
@@ -50,18 +55,24 @@ class TaskTest: XCTestCase {
         let location = Location(name: "Baz")
         let date = Date(timeIntervalSince1970: 10)
         let task = Task(title: "Foo", description: "Bar", date: date, location: location)
+        
         let locationDictionary: [String : Any] = ["name" : "Baz"]
-        let dictionary: [String : Any] = ["title": "Foo", "description" : "Bar", "date" : date, "location" : locationDictionary]
-        let createdTask = Task(dictionary: dictionary)
+        let dictionary: [String : Any] = ["title" : "Foo",
+                                          "description" : "Bar",
+                                          "date" : date,
+                                          "location" : locationDictionary]
+        let createdTask = Task(dict: dictionary)
+        
         XCTAssertEqual(task, createdTask)
     }
+    
     func testCanBeSerializedIntoDictionary() {
         let location = Location(name: "Baz")
         let date = Date(timeIntervalSince1970: 10)
         let task = Task(title: "Foo", description: "Bar", date: date, location: location)
-        let generatedTask = Task(dictionary: task.dictionary)
+        
+        let generatedTask = Task(dict: task.dict)
         
         XCTAssertEqual(task, generatedTask)
     }
-
 }

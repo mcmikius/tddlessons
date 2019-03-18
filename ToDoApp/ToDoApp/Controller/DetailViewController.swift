@@ -24,12 +24,6 @@ class DetailViewController: UIViewController {
         dateFormatter.dateFormat = "dd.MM.yy"
         return dateFormatter
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

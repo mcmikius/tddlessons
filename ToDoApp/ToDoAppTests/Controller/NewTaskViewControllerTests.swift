@@ -23,7 +23,7 @@ class NewTaskViewControllerTests: XCTestCase {
     }
     
     override func tearDown() {
-        super.tearDown()
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
     func testHasTitleTextField() {
@@ -55,22 +55,22 @@ class NewTaskViewControllerTests: XCTestCase {
     }
     
     func testSaveUsesGeocoderToConvertCoordinateFromAddress() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy"
-        let date = dateFormatter.date(from: "12.03.19")
+        let df = DateFormatter()
+        df.dateFormat = "dd.MM.yy"
+        let date = df.date(from: "01.01.19")
         
         sut.titleTextField.text = "Foo"
         sut.locationTextField.text = "Bar"
-        sut.dateTextField.text = "12.03.19"
-        sut.addressTextField.text = "Kyiv"
+        sut.dateTextField.text = "01.01.19"
+        sut.addressTextField.text = "Уфа"
         sut.descriptionTextField.text = "Baz"
+        
         sut.taskManager = TaskManager()
         let mockGeocoder = MockCLGeocoder()
         sut.geocoder = mockGeocoder
         sut.save()
         
-        
-        let coordinate = CLLocationCoordinate2D(latitude: 50.4501, longitude: 30.5234)
+        let coordinate = CLLocationCoordinate2D(latitude: 54.7373058, longitude: 55.9722491)
         let location = Location(name: "Bar", coordinate: coordinate)
         let generatedTask = Task(title: "Foo", description: "Baz", date: date, location: location)
         
@@ -89,31 +89,36 @@ class NewTaskViewControllerTests: XCTestCase {
         guard let actions = saveButton?.actions(forTarget: sut, forControlEvent: .touchUpInside) else {
             XCTFail()
             return
-            
         }
+        
         XCTAssertTrue(actions.contains("save"))
     }
     
     func testGeocoderFetchesCorrectCoordinate() {
         let geocoderAnswer = expectation(description: "Geocoder answer")
-        let addressString = "Kyiv"
+        let addressString = "Уфа"
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(addressString) { (placemarks, error) in
+            
             let placemark = placemarks?.first
             let location = placemark?.location
             
-            guard let latitude = location?.coordinate.latitude, let longitude = location?.coordinate.longitude else {
-                XCTFail()
-                return
+            guard
+                let latitude = location?.coordinate.latitude,
+                let longitude = location?.coordinate.longitude else {
+                    XCTFail()
+                    return
             }
-            XCTAssertEqual(latitude, 50.4501)
-            XCTAssertEqual(longitude, 30.5234)
+            
+            XCTAssertEqual(latitude, 54.7373058)
+            XCTAssertEqual(longitude, 55.9722491)
             geocoderAnswer.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)
     }
     
     func testSaveDismissesNewTaskViewController() {
+        // given
         let mockNewTaskViewController = MockNewTaskViewController()
         mockNewTaskViewController.titleTextField = UITextField()
         mockNewTaskViewController.titleTextField.text = "Foo"
@@ -122,20 +127,25 @@ class NewTaskViewControllerTests: XCTestCase {
         mockNewTaskViewController.locationTextField = UITextField()
         mockNewTaskViewController.locationTextField.text = "Baz"
         mockNewTaskViewController.addressTextField = UITextField()
-        mockNewTaskViewController.addressTextField.text = "Kyiv"
+        mockNewTaskViewController.addressTextField.text = "Уфа"
         mockNewTaskViewController.dateTextField = UITextField()
-        mockNewTaskViewController.dateTextField.text = "12.03.19"
+        mockNewTaskViewController.dateTextField.text = "01.01.19"
+        
+        // when
         mockNewTaskViewController.save()
+        
+        // then
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             XCTAssertTrue(mockNewTaskViewController.isDismissed)
         }
     }
-    
 }
 
 extension NewTaskViewControllerTests {
     class MockCLGeocoder: CLGeocoder {
+        
         var completionHandler: CLGeocodeCompletionHandler?
+        
         override func geocodeAddressString(_ addressString: String, completionHandler: @escaping CLGeocodeCompletionHandler) {
             self.completionHandler = completionHandler
         }
@@ -152,6 +162,7 @@ extension NewTaskViewControllerTests {
 }
 
 extension NewTaskViewControllerTests {
+    
     class MockNewTaskViewController: NewTaskViewController {
         var isDismissed = false
         

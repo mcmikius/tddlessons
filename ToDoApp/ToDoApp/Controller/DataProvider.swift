@@ -34,7 +34,7 @@ extension DataProvider: UITableViewDelegate {
         switch section {
         case .todo:
             let task = taskManager?.task(at: indexPath.row)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DidSelectRowNotification"), object: self, userInfo: ["task" : task!])
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DidSelectRow notification"), object: self, userInfo: ["task" : task])
         case .done:
             break
         }

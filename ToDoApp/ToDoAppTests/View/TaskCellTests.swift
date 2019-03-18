@@ -24,43 +24,41 @@ class TaskCellTests: XCTestCase {
         tableView?.dataSource = dataSource
         
         cell = tableView?.dequeueReusableCell(withIdentifier: String(describing: TaskCell.self), for: IndexPath(row: 0, section: 0)) as? TaskCell
-        
     }
     
     override func tearDown() {
-        super.tearDown()
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
     func testCellHasTitleLabel() {
-        
         XCTAssertNotNil(cell.titleLabel)
     }
+    
     func testCellHasTitleLabelInContentView() {
-        
         XCTAssertTrue(cell.titleLabel.isDescendant(of: cell.contentView))
     }
     
     func testCellHasLocationLabel() {
-        
         XCTAssertNotNil(cell.locationLabel)
     }
+    
     func testCellHasLocationLabelInContentView() {
-        
         XCTAssertTrue(cell.locationLabel.isDescendant(of: cell.contentView))
     }
+    
     func testCellHasDateLabel() {
-        
         XCTAssertNotNil(cell.dateLabel)
     }
+    
     func testCellHasDateLabelInContentView() {
-        
         XCTAssertTrue(cell.dateLabel.isDescendant(of: cell.contentView))
     }
     
-    func testConfigureSetsTitle() {
+    func testConigureSetsTitle() {
         let task = Task(title: "Foo")
         
         cell.configure(withTask: task)
+        
         XCTAssertEqual(cell.titleLabel.text, task.title)
     }
     
@@ -68,18 +66,21 @@ class TaskCellTests: XCTestCase {
         let task = Task(title: "Foo")
         
         cell.configure(withTask: task)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yy"
+        let df = DateFormatter()
+        //        http://nsdateformatter.com
+        df.dateFormat = "dd.MM.yy"
         let date = task.date
-        let dateString = dateFormatter.string(from: date)
+        let dateString = df.string(from: date)
+        
         XCTAssertEqual(cell.dateLabel.text, dateString)
     }
     
-    func testConfigureSetsLocationName() {
+    func testConigureSetsLocationName() {
         let location = Location(name: "Foo")
         let task = Task(title: "Bar", location: location)
         
         cell.configure(withTask: task)
+        
         XCTAssertEqual(cell.locationLabel.text, task.location?.name)
     }
     
@@ -90,8 +91,7 @@ class TaskCellTests: XCTestCase {
     
     func testDoneTaskShouldStrikeThrough() {
         configureCellWithTask()
-        
-        let attributedString = NSAttributedString(string: "Foo", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
+        let attributedString = NSAttributedString(string: "Foo", attributes: [NSAttributedString.Key.strikethroughStyle : NSUnderlineStyle.single.rawValue])
         XCTAssertEqual(cell.titleLabel.attributedText, attributedString)
     }
     
@@ -115,7 +115,5 @@ extension TaskCellTests {
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             return UITableViewCell()
         }
-        
-        
     }
 }
